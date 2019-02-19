@@ -47,7 +47,6 @@
     "commander": "2.19.0",
     "fast-diff": "1.2.0",
     "find-up": "3.0.0",
-    "get-stdin": "6.0.0",
     "json-parse-helpfulerror": "1.0.3",
     "lodash": "4.17.11",
     "node-alias": "1.0.4",

@@ -97,27 +97,6 @@ describe('npm-check-updates', function () {
 
     describe('cli', function () {
 
-        it('should accept stdin', function () {
-            return spawn('node', ['bin/ncu'], '{ "dependencies": { "express": "1" } }')
-                .then(function (output) {
-                    output.trim().should.startWith('express');
-                });
-        });
-
-        it('should fall back to package.json search when receiving empty content on stdin', function () {
-            return spawn('node', ['bin/ncu']).then(function (stdout) {
-                stdout.toString().trim().should.match(/^Using .+package.json/);
-            });
-        });
-
-        it('should handle no package.json to analyze when receiving empty content on stdin', function () {
-            // run from tmp dir to avoid ncu analyzing the project's package.json
-            return spawn('node', [process.cwd() + '/bin/ncu'], {cwd: tmp.dirSync().name})
-                .catch(function (stderr) {
-                    stderr.toString().trim().should.startWith('No package.json');
-                });
-        });
-
         it('should output json with --jsonAll', function () {
             return spawn('node', ['bin/ncu', '--jsonAll'], '{ "dependencies": { "express": "1" } }')
                 .then(JSON.parse)

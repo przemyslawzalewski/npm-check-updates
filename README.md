@@ -196,8 +196,6 @@ Below you will find the most common known issues. Otherwise search the [issues p
 
 - `Cannot find module 'X'`. Cannot reproduce. TLDR; Seems to be fixed by fresh installs of node and npm. See [#144](https://github.com/tjunnone/npm-check-updates/issues/144#issuecomment-148499121).
 
-- Windows: If npm-check-updates hangs, run `ncu --loglevel verbose` to see if it is waiting for stdin. If so, try setting the package file explicitly: `ncu -g --packageFile package.json`. See [#136](https://github.com/tjunnone/npm-check-updates/issues/136#issuecomment-155721102).
-
 Development Notes
 --------------
 

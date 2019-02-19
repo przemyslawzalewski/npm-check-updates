@@ -6,10 +6,9 @@
   "contributors": [
     "Raine Revere (https://github.com/raineorshine)"
   ],
-  "description": "Find newer versions of dependencies than what your package.json or bower.json allows",
+  "description": "Find newer versions of dependencies than what your package.json allows",
   "keywords": [
     "npm",
-    "bower",
     "check",
     "find",
     "discover",
@@ -17,7 +16,6 @@
     "upgrades",
     "dependencies",
     "package.json",
-    "bower.json",
     "updater",
     "version",
     "management",
@@ -42,9 +40,6 @@
     "url": "https://github.com/tjunnone/npm-check-updates.git"
   },
   "homepage": "https://github.com/tjunnone/npm-check-updates",
-  "dynamicDependencies": {
-    "bower": "1.6.5"
-  },
   "dependencies": {
     "bluebird": "3.5.3",
     "chalk": "2.4.2",
@@ -57,6 +52,7 @@
     "json-parse-helpfulerror": "1.0.3",
     "lodash": "4.17.11",
     "node-alias": "1.0.4",
+    "node-fetch": "2.3.0",
     "npm": "6.8.0",
     "npmi": "4.0.0",
     "rc-config-loader": "2.0.2",

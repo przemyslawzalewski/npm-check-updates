@@ -6,7 +6,7 @@ npm-check-updates upgrades your package.json dependencies to the latest versions
 
 npm-check-updates maintains your existing semantic versioning *policies*, i.e., it will upgrade your `"express": "^4.0.0"` dependency to `"express": "^5.0.0"`.
 
-npm-check-updates *only* modifies your package.json file. Run `npm install` to update your installed packages and package-lock.json. 
+npm-check-updates *only* modifies your package.json file. Run `npm install` to update your installed packages and package-lock.json.
 
 ![npm-check-updates-screenshot](https://cloud.githubusercontent.com/assets/750276/8864534/0788a4d8-3171-11e5-9881-8f7dcf634d14.png)
 
@@ -49,11 +49,6 @@ package.json upgraded
 $ npm install      # update installed packages and package-lock.json
 ```
 
-Works with bower:
-```sh
-$ ncu -m bower     # will use bower.json and check versions in bower
-```
-
 You can include or exclude specific packages using the `--filter` and `--reject` options. They accept strings, comma-delimited lists, or regular expressions:
 
 ```sh
@@ -78,7 +73,7 @@ Options
                              comma-delimited list, or regex
     -g, --global             check global packages instead of in the current project
     -h, --help               output usage information
-    -m, --packageManager     npm or bower (default: npm)
+    -m, --packageManager     npm (default: npm)
     -r, --registry           specify third-party NPM registry
     -u, --upgrade            overwrite package file
     -x, --reject             exclude packages matching the given string, comma-
@@ -106,7 +101,7 @@ Do not use these unless you know what you are doing! Not needed for typical usag
     --packageFileDir         use same directory as packageFile to compare against
                              installed modules. See #201.
     --configFilePath         rc config file path (default: ./)
-    --configFileName         rc config file name (default: .ncurc.{json,yml,js})                             
+    --configFileName         rc config file name (default: .ncurc.{json,yml,js})
     -n, --newest             find the newest published versions available instead
                              of the latest stable versions
     -o, --optional           check only optionalDependencies
@@ -130,7 +125,7 @@ For example, `.ncurc.json`:
 
 ```json
 {
-  "upgrade": true, 
+  "upgrade": true,
   "filter": "express",
   "reject": [
     "@types/estree",

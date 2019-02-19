@@ -2,13 +2,12 @@ var ncu             = require('../lib/npm-check-updates.js');
 var chai            = require('chai');
 var fs              = require('fs');
 var spawn           = require('spawn-please');
-var BluebirdPromise = require('bluebird');
 var tmp             = require('tmp');
 
 chai.use(require('chai-as-promised'));
 chai.use(require('chai-string'));
 
-spawn.Promise = BluebirdPromise;
+spawn.Promise = Promise;
 
 describe('npm-check-updates', function () {
 
@@ -26,7 +25,7 @@ describe('npm-check-updates', function () {
                 packageData: fs.readFileSync(__dirname + '/ncu/package2.json', 'utf-8'),
                 args: ['lodash.map']
             });
-            return BluebirdPromise.all([
+            return Promise.all([
                 upgraded.should.eventually.have.property('lodash.map'),
                 upgraded.should.eventually.not.have.property('lodash.filter')
             ]);
@@ -37,7 +36,7 @@ describe('npm-check-updates', function () {
                 packageData: fs.readFileSync(__dirname + '/ncu/package2.json', 'utf-8'),
                 args: ['lodash.map', 'lodash.filter']
             });
-            return BluebirdPromise.all([
+            return Promise.all([
                 upgraded.should.eventually.have.property('lodash.map'),
                 upgraded.should.eventually.have.property('lodash.filter')
             ]);
@@ -50,7 +49,7 @@ describe('npm-check-updates', function () {
                 jsonUpgraded: true
             });
 
-            return BluebirdPromise.all([
+            return Promise.all([
                 upgraded.should.eventually.have.property('juggernaut'),
                 upgraded.then(function (data) {
                     return data.should.eql({juggernaut: '^2.1.1'});

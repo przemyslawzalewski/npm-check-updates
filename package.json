@@ -27,9 +27,9 @@
   },
   "main": "./lib/npm-check-updates",
   "scripts": {
-    "lint": "eslint bin lib test",
+    "lint": "eslint lib test",
     "watch": "chokidar \"lib/**/*.js\" -c \"npm run test\"",
-    "test": "npm run lint ; mocha && mocha test/individual"
+    "test": "npm run lint && mocha && mocha test/individual"
   },
   "bin": {
     "npm-check-updates": "./bin/npm-check-updates",
@@ -41,7 +41,6 @@
   },
   "homepage": "https://github.com/tjunnone/npm-check-updates",
   "dependencies": {
-    "bluebird": "3.5.3",
     "chalk": "2.4.2",
     "cint": "8.2.1",
     "cli-table": "0.3.1",

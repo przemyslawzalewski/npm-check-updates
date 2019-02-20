@@ -29,7 +29,8 @@
   "scripts": {
     "lint": "eslint lib test",
     "watch": "chokidar \"lib/**/*.js\" -c \"npm run test\"",
-    "test": "npm run lint && mocha && mocha test/individual"
+    "test": "mocha && mocha test/individual",
+    "test:individual": "mocha test/individual"
   },
   "bin": {
     "npm-check-updates": "./bin/npm-check-updates",

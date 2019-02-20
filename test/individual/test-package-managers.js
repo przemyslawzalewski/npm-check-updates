@@ -2,11 +2,8 @@ var packageManagers = require('../../lib/package-managers');
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
 
-chai.should();
+var should = chai.should();
 chai.use(chaiAsPromised);
-
-// the directory with the test package.json
-var testDir = __dirname + '/../ncu';
 
 describe('package-managers', function () {
 
@@ -19,20 +16,21 @@ describe('package-managers', function () {
         var pkgManager = packageManagers.npm;
 
         before(function () {
-            return pkgManager.init({prefix: testDir});
+            return pkgManager.init();
         });
 
-        it('list', function () {
-            // eventual deep properties broken in chai-as-promised 7.0.0
-            return pkgManager.list().should.eventually.have.deep.property('dependencies.express');
+        it('list', async () => {
+            const pkg = await pkgManager.list();
+            const { dependencies: { semver } } = pkg;
+            return semver !== undefined;
         });
 
         it('latest', function () {
-            return pkgManager.latest('express').then(parseInt).should.eventually.be.above(1);
+            return pkgManager.latest('semver').then(parseInt).should.eventually.be.above(1);
         });
 
         it('greatest', function () {
-            return pkgManager.greatest('express').then(parseInt).should.eventually.be.above(1);
+            return pkgManager.greatest('semver').then(parseInt).should.eventually.be.above(1);
         });
 
     });

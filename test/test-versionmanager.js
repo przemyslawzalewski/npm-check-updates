@@ -395,9 +395,9 @@ describe('versionmanager', function () {
                 .should.eventually.have.property('async');
         });
 
-        it('set the versionTarget to greatest', function () {
-            return vm.queryVersions({'async': '1.5.1'}, {versionTarget: 'greatest'})
-                .should.eventually.have.property('async');
+        it('set the versionTarget to greatest', async () => {
+            const result = await vm.queryVersions({'async': '1.5.1'}, {versionTarget: 'greatest'})
+            return result.should.have.property('async');
         });
 
         it('should return an error for an unsupported versionTarget', function () {

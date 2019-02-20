@@ -2,7 +2,6 @@ var ncu             = require('../lib/npm-check-updates.js');
 var chai            = require('chai');
 var fs              = require('fs');
 var spawn           = require('spawn-please');
-var tmp             = require('tmp');
 
 chai.use(require('chai-as-promised'));
 chai.use(require('chai-string'));
